@@ -6,7 +6,7 @@
 /*   By: aulicna <aulicna@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 11:37:24 by aulicna           #+#    #+#             */
-/*   Updated: 2023/11/01 12:35:59 by aulicna          ###   ########.fr       */
+/*   Updated: 2023/11/02 19:36:30 by aulicna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,6 @@
 # include "libftprintf/ft_printf.h"
 # include <signal.h>
 # include <unistd.h>
+# include <stdlib.h>
 
 #endif
