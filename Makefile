@@ -6,7 +6,7 @@
 #    By: aulicna <aulicna@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/31 18:27:47 by aulicna           #+#    #+#              #
-#    Updated: 2023/11/02 20:23:57 by aulicna          ###   ########.fr        #
+#    Updated: 2023/11/05 12:32:38 by aulicna          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,9 @@ all: libs $(SERVER) $(CLIENT)
 
 bonus: libs $(SERVER_B) $(CLIENT_B) 
 
+.c.o:
+	$(GCC) $(CFLAGS) -c $< -o $@
+
 libs:
 	@make -C $(LIBFTPRINTF)
 	@echo "libprintf library ready ✅"
@@ -54,21 +57,17 @@ $(CLIENT_B): $(C_OBJ_B)
 
 clean:
 	@rm -f $(S_OBJ) $(C_OBJ)
-	@make clean -C $(LIBFTPRINTF)
-
-clean_bonus:
 	@rm -f $(S_OBJ_B) $(C_OBJ_B)
 	@make clean -C $(LIBFTPRINTF)
+
 
 fclean:
 	@rm -f $(S_OBJ) $(C_OBJ)
 	@rm -f $(SERVER) $(CLIENT)
-	@make fclean -C $(LIBFTPRINTF)
-
-fclean_bonus:
 	@rm -f $(S_OBJ_B) $(C_OBJ_B)
 	@rm -f $(SERVER_B) $(CLIENT_B)
 	@make fclean -C $(LIBFTPRINTF)
+
 
 re: fclean all
 
