@@ -6,7 +6,7 @@
 #    By: aulicna <aulicna@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/31 18:27:47 by aulicna           #+#    #+#              #
-#    Updated: 2023/11/05 12:32:38 by aulicna          ###   ########.fr        #
+#    Updated: 2023/11/06 14:16:08 by aulicna          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ S_SRC = server.c
 C_SRC = client.c
 S_SRC_B = server_bonus.c
 C_SRC_B = client_bonus.c
+HEADER = minitalk.h
 
 S_OBJ = $(S_SRC:.c=.o)
 C_OBJ = $(C_SRC:.c=.o)
@@ -43,23 +44,22 @@ libs:
 	@make -C $(LIBFTPRINTF)
 	@echo "libprintf library ready ✅"
 
-$(SERVER): $(S_OBJ)
+$(SERVER): $(S_OBJ) $(HEADER)
 	$(GCC) $(CFLAGS) -L $(LIBFTPRINTF) -o $@ $^ -lftprintf
 
-$(SERVER_B): $(S_OBJ_B)
+$(SERVER_B): $(S_OBJ_B) $(HEADER)
 	$(GCC) $(CFLAGS) -L $(LIBFTPRINTF) -o $@ $^ -lftprintf
 
-$(CLIENT): $(C_OBJ)
+$(CLIENT): $(C_OBJ) $(HEADER)
 	$(GCC) $(CFLAGS) -L $(LIBFTPRINTF) -o $@ $^ -lftprintf
 
-$(CLIENT_B): $(C_OBJ_B)
+$(CLIENT_B): $(C_OBJ_B) $(HEADER)
 	$(GCC) $(CFLAGS) -L $(LIBFTPRINTF) -o $@ $^ -lftprintf
 
 clean:
 	@rm -f $(S_OBJ) $(C_OBJ)
 	@rm -f $(S_OBJ_B) $(C_OBJ_B)
 	@make clean -C $(LIBFTPRINTF)
-
 
 fclean:
 	@rm -f $(S_OBJ) $(C_OBJ)
@@ -68,9 +68,8 @@ fclean:
 	@rm -f $(SERVER_B) $(CLIENT_B)
 	@make fclean -C $(LIBFTPRINTF)
 
-
 re: fclean all
 
-re_bonus: fclean_bonus bonus
+re_bonus: fclean bonus
 
 .PHONY: all bonus libs clean clean_bonus fclean fclean_bonus re re_bonus
