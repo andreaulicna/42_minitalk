@@ -6,7 +6,7 @@
 #    By: aulicna <aulicna@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/31 18:27:47 by aulicna           #+#    #+#              #
-#    Updated: 2023/11/06 14:16:08 by aulicna          ###   ########.fr        #
+#    Updated: 2023/11/06 23:30:41 by aulicna          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,4 +72,4 @@ re: fclean all
 
 re_bonus: fclean bonus
 
-.PHONY: all bonus libs clean clean_bonus fclean fclean_bonus re re_bonus
+.PHONY: all bonus libs clean fclean re re_bonus
